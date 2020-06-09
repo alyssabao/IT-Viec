@@ -3,12 +3,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 import moment from 'moment'
+import {Link} from 'react-router-dom'
 
 export default function JobCard(props) {
   let job = props.job;
-  function jobSelect() {}
     return (
-        <div className="job-content" onClick={() => jobSelect()}>
+        <div className="jobCardFormat">
+          <Link to={`/jobs/${job.id}`} className="wordColor">
           <Row>
             <Col>
               <div className="jobcard-logo">
@@ -38,7 +39,7 @@ export default function JobCard(props) {
             <Col>
               <div className="date-location-box">
                 {job.isHotjob ? (
-                  <div className="hotjob-label">Hot Job</div>
+                  <div className="hotJobFormat">Hot Job</div>
                 ) : (
                   <div></div>
                 )}
@@ -51,6 +52,7 @@ export default function JobCard(props) {
               </div>
             </Col>
           </Row>
+          </Link>
         </div>
       );    
 }
