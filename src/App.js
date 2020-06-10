@@ -25,8 +25,8 @@ function App() {
         <ProtectedRoute path="/jobs/:id" render={(props) => <Details {...props}/>}/>
         <Route path="/jobs" component={Jobs}/>
         <Route path="/login" component={Login}/>
-        <Route path="*" component={FourOhFour} />
         <Route path="/" component={Jobs}/>
+        <Route path="*" component={FourOhFour} />
       </Switch>
     </div>
   );
