@@ -3,18 +3,20 @@ import { useParams } from "react-router-dom";
 import Badge from 'react-bootstrap/Badge';
 import moment from 'moment'
 import Button from 'react-bootstrap/Button'
+import {Link} from 'react-router-dom'
+import {useSelector} from 'react-redux'
 import JobCard from './components/JobCard'
 import Container from 'react-bootstrap/Container'
 
 export default function Details() {
     let [jobs, setJobs] = useState(null)
+    let user = useSelector((state)=>state.user)
     const { id } = useParams();
     const getDetailData = async () => {
         let url = `${process.env.REACT_APP_BACKEND_SERVER_URL}/jobs/${id}`
         let data = await fetch(url)
         let result = await data.json()
         setJobs(result);
-        console.log("uygh", result)
     }
     useEffect(() => {
         getDetailData();
@@ -25,10 +27,12 @@ export default function Details() {
     return (
         <div>
             <div className="header">
-                <img src="/images/IT-Viec-Logo.png" className="logoSize" />
+                <div>
+                    <img src="/images/IT-Viec-Logo.png" className="logoSize" />
+                    <Link to={`/jobs`} className="linkFormat">Home</Link>
+                </div>  
+                <p className="emailColor">{user.email}</p>
             </div>
-            {/* <h1>This is Details page.</h1>
-            <h2>Your ID is {id}.</h2> */}
             <div className="bgGray">
                 <div className="detailFormat">
                     <div>

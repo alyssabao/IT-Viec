@@ -77,3 +77,27 @@
   color: rgb(100, 100, 100);
   text-decoration: none;
 }
+
+.rightNav {
+  display: flex;
+}
+
+.emailColor {
+  color: white;
+  margin-right: 10px;
+  position: relative;
+  top: 12px;
+}
+
+.linkFormat {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  top: 3px;
+  margin-left: 20px;
+}
+
+.linkFormat:hover {
+  color: lightgray;
+  text-decoration: none;
+}

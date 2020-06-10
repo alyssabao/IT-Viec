@@ -6,12 +6,14 @@ import Jobs from "./page/Jobs"
 import Login from "./page/Login"
 import Details from "./page/Details"
 import FourOhFour from "./page/FourOhFour"
+import { useSelector } from "react-redux";
 
 
 function App() {
-  let [user, setUser] = useState(true);
+  let user = useSelector((state) => state.user);
+  // let [user, setUser] = useState({ isAuthenticated: false });
   const ProtectedRoute = (props) => {
-    if (user === true) {
+    if (user.isAuthenticated === true) {
       return <Route {...props} />;
     } else {
       return <Redirect to="/login" />;
